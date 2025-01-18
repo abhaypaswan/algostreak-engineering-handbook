@@ -1,0 +1,35 @@
+name: Sync to Private Repo
+
+on:
+  push:
+    paths:
+      - docs/** # Trigger only for specific file or folder
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Public Repo
+      uses: actions/checkout@v3
+
+    - name: Checkout Private Repo
+      uses: actions/checkout@v3
+      with:
+        repository: abhaypaswan/cdd_validation
+        token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+        path: private-repo # Directory to clone private repo
+
+    - name: Copy Files
+      run: |
+        mkdir -p private-repo/output # Ensure destination exists
+        cp -r docs/* private-repo/output
+
+    - name: Push Changes to Private Repo
+      run: |
+        cd private-repo
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Sync from public repo: $GITHUB_SHA"
+        git push
