@@ -1,0 +1,111 @@
+---
+title: Interface Segregation Principle
+description: The principle of interface segregation states that a client should not be forced to implement an interface that it doesn't use.
+component: true
+---
+
+> The principle of interface segregation states that a client should not be forced to implement an interface that it doesn't use. If an interface has methods that a client doesn't need, then it is considered "fat" or "unsegregated" and violates the principle of interface segregation.
+
+Instead, the interface should be broken down into smaller, more specific interfaces, each of which defines a more narrowly focused set of methods. This allows clients to implement only the interfaces that they need, rather than being forced to implement a large, "fat" interface that defines a large number of methods that are not relevant to their needs.
+
+Here's an example of a system that violates the interface segregation principle in Python:
+
+```python
+class Superhero:
+  def fly(self):
+    pass
+  def super_strength(self):
+    pass
+  def invisibility(self):
+    pass
+
+class Superman(Superhero):
+  def fly(self):
+    # code to fly
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+  def invisibility(self):
+    # code to become invisible
+    pass
+
+class Spiderman(Superhero):
+  def fly(self):
+    # code to swing from webs
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+  def invisibility(self):
+    # code to become invisible
+    pass
+
+class Batman(Superhero):
+  def fly(self):
+    # code to use the batwing
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+  def invisibility(self):
+    # code to become invisible
+    pass
+
+class Ironman(Superhero):
+  def fly(self):
+    # code to fly using the Ironman suit
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+  def invisibility(self):
+    # code to become invisible
+    pass
+```
+
+In this example, the **`Superhero`** class defines three methods: **`fly`**, **`super_strength`**, and **`invisibility`**. However, not all superheroes have the ability to fly, use super strength, or become invisible. For example, Spiderman can swing from webs and use super strength, but he cannot fly or become invisible. This means that the **`Spiderman`** class is forced to implement the **`fly`** and **`invisibility`** methods of the **`Superhero`** class, even though it does not use them. This violates the principle of interface segregation, as it forces clients to depend on methods they do not use.
+
+To fix this issue and make the system follow the interface segregation principle, we could create separate classes for each type of behavior:
+
+```python
+class Flier:
+  def fly(self):
+    pass
+
+class SuperStrength:
+  def super_strength(self):
+    pass
+
+class Invisible:
+  def invisibility(self):
+    pass
+
+class Superman(Flier, SuperStrength):
+  def fly(self):
+    # code to fly
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+
+class Spiderman(SuperStrength):
+  def super_strength(self):
+    # code to use super strength
+    pass
+
+class Batman(SuperStrength):
+  def super_strength(self):
+    # code to use super strength
+    pass
+
+class Ironman(Flier, SuperStrength):
+  def fly(self):
+    # code to fly using the Ironman suit
+    pass
+  def super_strength(self):
+    # code to use super strength
+    pass
+```
+
+In this revised version of the system, the **`Superman`**, **`Spiderman`**, **`Batman`**, and **`Ironman`** classes only implement the methods that are relevant to their abilities. This follows the principle of interface segregation, as it ensures that clients are not forced to depend on interfaces they do not use.

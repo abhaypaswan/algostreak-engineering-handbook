@@ -1,0 +1,133 @@
+---
+title: Design Social Media App
+description: Design and implement a low-level design for a social media application similar to Instagram and other popular social media platforms, such as Facebook and Twitter, that allows users to share images, videos, and updates with their followers. The application should provide features such as user registration, login, post creation, viewing a feed, commenting, liking, following/unfollowing, and search capabilities. The goal is to create a user-friendly platform for users to share and discover content, connect with others, and stay up to date with their friends and family.
+component: true
+---
+
+Design and implement a low-level design for a social media application similar to Instagram and other popular social media platforms, such as Facebook and Twitter, that allows users to share images, videos, and updates with their followers. The application should provide features such as user registration, login, post creation, viewing a feed, commenting, liking, following/unfollowing, and search capabilities. The goal is to create a user-friendly platform for users to share and discover content, connect with others, and stay up to date with their friends and family.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Finstagram.png?alt=media&token=1a196f14-e0c7-4284-b5cf-800252f6732c](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Finstagram.png?alt=media&token=1a196f14-e0c7-4284-b5cf-800252f6732c)
+
+### Requirements:
+
+1. User Registration: A user should be able to register and create an account with the application.
+2. User Login: A user should be able to log in to their account using their username and password.
+3. Post Creation: A user should be able to upload images and videos to their account, add captions and hashtags to the posts. [While coding, exclude the feature of uploading images and videos but include it in the diagram]
+4. View Feed: A user should be able to view the posts from their followers in their feed.
+5. Commenting: A user should be able to comment on posts in their feed.
+6. Liking: A user should be able to like posts in their feed.
+7. Follow/Unfollow: A user should be able to follow and unfollow other users.
+8. Search: A user should be able to search for other users and view their profiles.
+
+### Sample Input/Output:
+
+```python
+Welcome to Instagram!
+
+1. Register
+2. Login
+
+Enter your choice: 1
+
+Enter First Name: John
+Enter Last Name: Doe
+Enter Email: john.doe@example.com
+Enter Password: ******
+
+Account created successfully!
+
+1. Register
+2. Login
+
+Enter your choice: 2
+
+Enter Email: john.doe@example.com
+Enter Password: ******
+
+Welcome back, John Doe!
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 1
+
+Enter Image/Video URL: https://example.com/image.jpg
+Enter Caption: Enjoying the beach!
+Enter Hashtags (separated by spaces): beach sun vacation
+
+Post created successfully!
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 2
+
+---
+Post 1: Enjoying the beach! #beach #sun #vacation
+---
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 3
+
+Enter Comment: Beautiful!
+Enter Post ID: 1
+
+Comment added successfully!
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 4
+
+Enter Post ID: 1
+
+Like added successfully!
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 5
+
+Enter User ID to follow/unfollow: 2
+Enter 1 to follow or 2 to unfollow: 1
+
+Followed successfully!
+
+1. Create Post
+2. View Feed
+3. Comment
+4. Like
+5. Follow/Unfollow
+6. Search
+
+Enter your choice: 6
+
+Enter search criteria: beach
+
+---
+Post 1: Enjoying the beach! #beach #sun #vacation
+User 2: Loving the beach life! #beach #vacation
+---
+```

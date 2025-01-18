@@ -1,0 +1,59 @@
+---
+title: Snake and Ladder
+description: The Snake and Ladder game is a classic board game where players roll a dice to move their game piece along a board, with the goal of reaching the end before their opponents. In this problem, we want to write a machine code to simulate a game of Snake and Ladder.
+component: true
+---
+
+The Snake and Ladder game is a classic board game where players roll a dice to move their game piece along a board, with the goal of reaching the end before their opponents. In this problem, we want to write a machine code to simulate a game of Snake and Ladder.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/snakeladder.jpeg?alt=media&token=3c988543-31c7-4d1d-b5ec-765dff826a0e](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/snakeladder.jpeg?alt=media&token=3c988543-31c7-4d1d-b5ec-765dff826a0e)
+
+### Requirements
+
+1. The game should be played on a board with 100 squares, numbered from 1 to 100.
+2. The player starts at square 1.
+3. The player rolls a dice to move their game piece the number of squares indicated by the dice roll. The dice should have 6 sides and generate random numbers from 1 to 6.
+4. If the player lands on a square with a ladder, they climb up the ladder to a higher square. There are multiple ladders in the game, each connecting two squares.
+5. If the player lands on a square with a snake, they slide down to a lower square. There are multiple snakes in the game, each connecting two squares.
+6. The game ends when the player reaches square 100. The code should print a message indicating that the player has won.
+
+### **Additional Requirements**
+
+1. The game should be able to support more than two players.
+2. The game should allow for the use of more than one dice.
+
+### Example
+
+Here is an example of what a game of Snake and Ladder could look like:
+
+```python
+Rolling dice...
+Player 1 rolled a 4.
+Player 1 is now on square 5.
+
+Rolling dice...
+Player 2 rolled a 6.
+Player 2 is now on square 11.
+
+....
+
+Rolling dice...
+Player 1 landed on a ladder!
+Player 1 is now on square 89.
+
+Rolling dice...
+Player 2 landed on a snake!
+Player 2 is now on square 67.
+
+....
+
+Rolling dice...
+Player 2 rolled a 3
+Player 2 is now on square 91
+
+Rolling dice...
+Player 1 rolled a 5
+Player 1 is now on square 100
+
+Player 1 won!
+```

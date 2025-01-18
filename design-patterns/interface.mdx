@@ -1,0 +1,52 @@
+---
+title: Interface
+description: An interface in Python is a collection of abstract methods that a class can implement. It is similar to an abstract class, in that it cannot be instantiated directly, but it can be used to define a protocol that must be followed by any concrete (i.e., non-abstract) class that implements the interface.
+component: true
+---
+
+An interface in Python is a collection of abstract methods that a class can implement. It is similar to an abstract class, in that it cannot be instantiated directly, but it can be used to define a protocol that must be followed by any concrete (i.e., non-abstract) class that implements the interface.
+
+In Python, an interface is defined using the **`abc`** (abstract base classes) module. Here is an example of how to define an interface for a shape class:
+
+```python
+import abc
+
+class Shape(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def area(self):
+        pass
+
+    @abc.abstractmethod
+    def perimeter(self):
+        pass
+```
+
+To implement an interface, a class must provide an implementation for all of the abstract methods defined in the interface. For example, here is how the **`Rectangle`** class could implement the **`Shape`** interface:
+
+```python
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+```
+
+Note that the **`Rectangle`** class must implement both the **`area`** and **`perimeter`** methods, as they are both abstract methods defined in the **`Shape`** interface. If the **`Rectangle`** class were to omit one of these methods, it would raise a **`TypeError`** when you tried to create an instance of the class.
+
+Interfaces are useful for defining a set of methods that a class must implement, and for enforcing this contract at runtime. This can be particularly useful in large codebases, where it is important to ensure that certain methods are always defined for a particular type of object.
+
+### What problem does interface solve?
+
+Interfaces solve a number of problems in object-oriented programming:
+
+1. Interfaces allow for flexibility in how a particular set of methods can be implemented. By defining an interface, we can specify a common set of methods that can be used by multiple classes, while still allowing each class to have its own implementation of these methods.
+2. Interfaces can be used to enforce a particular set of methods for a class. By using an interface, we can ensure that any class that implements the interface has a specific set of methods, which can be useful in large codebases where it is important to ensure that certain methods are always defined for a particular type of object.
+3. Interfaces can be used to define a protocol that must be followed by any class that implements the interface. This can be particularly useful when working with third-party libraries, as it allows us to define a common set of methods that can be used to interact with these libraries.
+4. Interfaces can be used to define a common set of methods that can be used to interact with a particular type of object. For example, we could define an **`Iterable`** interface that specifies methods for iterating over a collection of objects, such as **`__iter__`** and **`__next__`**. This allows us to write code that can work with any object that implements this interface, regardless of the specific implementation of these methods.
+
+Overall, interfaces are a useful tool for designing flexible, maintainable, and well-structured code in object-oriented programming.

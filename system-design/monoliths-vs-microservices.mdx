@@ -1,0 +1,53 @@
+---
+title: Monoliths vs Microservices
+description: In a system design interview, it's important to be able to weigh the trade-offs between monolithic and microservices architectures and to be able to make a reasoned decision about which approach is best for a given problem.
+component: true
+---
+
+In a system design interview, it's important to be able to weigh the trade-offs between monolithic and microservices architectures and to be able to make a reasoned decision about which approach is best for a given problem.
+
+A monolithic architecture refers to a single, unified application that contains all the functionality in a single codebase. This can make development and deployment relatively simple, as all the code is in one place and there is less need for communication between different services.
+
+On the other hand, a microservices architecture involves breaking down a large application into a collection of small, independent services that communicate with one another through APIs. This can make development more complex, as each service needs to be developed and deployed independently. However, it can also make the overall system more scalable and resilient, as individual services can be updated or replaced without affecting the entire system.
+
+### Monolithic Architecture:
+
+Pros:
+
+- Simple to develop and deploy
+- Easy to navigate and manage
+- Fewer inter-service communication issues
+- Less operational complexity
+
+Cons:
+
+- Difficult to scale and update
+- Not as resilient to failures
+- Not as flexible to changes
+- Can become hard to maintain as the system grows
+
+### Microservices Architecture:
+
+Pros:
+
+- Highly scalable and resilient
+- Flexible to changes and updates
+- Independent deployment and scaling of services
+- Allows for a more granular approach to problem-solving
+
+Cons:
+
+- More complex to develop and deploy
+- More inter-service communication issues
+- Higher operational complexity
+- Can be harder to navigate and manage
+
+It's important to note that the choice between a monolithic and microservices architecture depends on the specific requirements of the application and the organization's goals and constraints. Each approach has its own advantages and disadvantages and a careful consideration of the trade-offs between them is needed to make a reasoned decision about which approach is best for a given problem.
+
+### Myth: Monolithic architecture refers only to a single, large system.
+
+A monolithic architecture typically refers to an application that is a single, unified system, where all the functionality is contained within a single codebase. However, it's worth noting that a monolithic application can be composed of multiple smaller systems, but they are tightly integrated and are not independently deployable.
+
+For example, a monolithic application could include a web server, a database, and various libraries and modules that handle different functionality. While these components may be separate systems, they are all tightly integrated and cannot be deployed or updated independently.
+
+In contrast, a microservices architecture breaks down a large application into a collection of small, independent services that can be deployed and updated independently. This allows for more flexibility and scalability, but it also increases the complexity of the system.

@@ -1,0 +1,64 @@
+---
+title: Single Responsibility Principle
+description: The Single Responsibility Principle (SRP) is a principle of object-oriented programming that states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class.
+component: true
+---
+
+The Single Responsibility Principle (SRP) is a principle of object-oriented programming that states that every class should have a single responsibility, and that responsibility should be entirely encapsulated by the class.
+
+> This means that a class should have only one reason to change, and that any changes to the class should be made in service of that one responsibility.
+
+Here is an example of a class that does not follow the Single Responsibility Principle:
+
+```python
+class User:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def save(self):
+        # save user to database
+
+    def authenticate(self):
+        # authenticate user against database
+
+    def send_email(self, to, subject, message):
+        # send an email to specified recipient
+```
+
+In this example, the **`User`** class has three responsibilities: storing user information, authenticating users, and sending emails. So, it would be better to encapsulate them in separate classes to avoid several potential problems. These problems include:
+
+- The class becoming large and unwieldy, which can make it difficult to understand and maintain.
+- The class being more prone to errors, as changes to the class to support one responsibility may unintentionally break code related to another responsibility.
+- The overall design of the program becoming more complex, as it would require more coordination between the **`User`** class and other parts of the program.
+- The class being difficult to reuse in other parts of the program, due to its diverse set of responsibilities.
+
+By encapsulating the responsibilities of the **`User`** class in separate classes, we can avoid these problems and create a more modular, maintainable, and scalable design.
+
+Here is how we could refactor this code to follow the Single Responsibility Principle:
+
+```python
+class User:
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def save(self):
+        # save user to database
+
+class Authentication:
+    def authenticate(self, user):
+        # authenticate user against database
+
+class Emailer:
+    def send_email(self, user, to, subject, message):
+        # send an email to specified recipient
+```
+
+In this revised design, each class has a single responsibility:
+
+- The **`User`** class is responsible for storing user information.
+- The **`Authentication`** class is responsible for authenticating users.
+- The **`Emailer`** class is responsible for sending emails.
+
+This design follows the Single Responsibility Principle, because each class has a single, well-defined responsibility and any changes to the class should be made in service of that responsibility.

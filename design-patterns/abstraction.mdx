@@ -1,0 +1,107 @@
+---
+title: Abstraction
+description: Abstraction is the process of hiding the details of something in order to focus on its essential characteristics. In programming, abstraction is used to reduce complexity and improve the reliability and maintainability of a system by encapsulating code inside functions, classes, or modules and providing a simple interface for interacting with the code.
+component: true
+---
+
+Abstraction is the process of hiding the details of something in order to focus on its essential characteristics. In programming, abstraction is used to reduce complexity and improve the reliability and maintainability of a system by encapsulating code inside functions, classes, or modules and providing a simple interface for interacting with the code.
+
+Sometimes definitions can be confusing, so let's try to understand abstraction with an example:
+
+```python
+from abc import ABC, abstractmethod
+
+class MarvelCharacter(ABC):
+  @abstractmethod
+  def use_superpower(self):
+    pass
+
+	"""
+		Here attack method is a concrete method:
+		In Python, if the class only contains abstract methods
+		(i.e., methods that are declared but do not have an implementation),
+		then it is likely an interface. If the class contains both abstract
+		and concrete methods, then it is likely an abstract class
+	"""
+  def attack(self, opponent):
+    print(f"{self.name} is attacking {opponent}!")
+
+class IronMan(MarvelCharacter):
+  def __init__(self):
+    self.name = "Iron Man"
+
+  def use_superpower(self):
+    print("I'm using my repulsor beams!")
+
+class Hulk(MarvelCharacter):
+  def __init__(self):
+    self.name = "Hulk"
+
+  def use_superpower(self):
+    print("HULK SMASH!")
+
+class SpiderMan(MarvelCharacter):
+  def __init__(self):
+    self.name = "Spider-Man"
+
+  def use_superpower(self):
+    print("I'm using my web-slinging abilities!")
+```
+
+In this example, the **`MarvelCharacter`** class is an abstract base class that defines an abstract method called **`use_superpower`** and a concrete method called **`attack`**. The **`use_superpower`** method represents the ability of a Marvel character to use their superpower, while the **`attack`** method allows the character to attack an opponent.
+
+The **`IronMan`**, **`Hulk`**, and **`SpiderMan`** classes are concrete subclasses of **`MarvelCharacter`** that provide an implementation for the **`use_superpower`** abstract method. Each of these classes has its own unique implementation of the **`use_superpower`** method, reflecting the different superpowers of the characters.
+
+In addition to implementing the **`use_superpower`** method, the concrete subclasses also have a **`__init__`** method that sets the name of the character. This is used by the **`attack`** method to display the name of the character when it is called.
+
+Now, we can create instances of these concrete subclasses and call the **`use_superpower`** and **`attack`** methods to see how each character uses their superpower and attacks an opponent:
+
+```python
+iron_man = IronMan()
+iron_man.use_superpower()  # Output: "I'm using my repulsor beams!"
+iron_man.attack("Loki")  # Output: "Iron Man is attacking Loki!"
+
+hulk = Hulk()
+hulk.use_superpower()  # Output: "HULK SMASH!"
+hulk.attack("Thanos")  # Output: "Hulk is attacking Thanos!"
+
+spider_man = SpiderMan()
+spider_man.use_superpower()  # Output: "I'm using my web-slinging abilities!"
+spider_man.attack("Green Goblin")  # Output: "Spider-Man is attacking Green Goblin!"
+```
+
+### Interface vs Abstract Class
+
+An interface is defined using an abstract base class, which is a class that contains one or more abstract methods. An abstract class, on the other hand, is a class that contains one or more abstract methods, as well as concrete (i.e., non-abstract) methods.
+
+Another way to distinguish between an interface and an abstract class in Python is to look at the purpose of the class. If the purpose of the class is to define a set of methods that other classes must implement, then it is likely an interface. If the purpose of the class is to provide a partial implementation of a class and define the interface of the class, then it is likely an abstract class.
+
+"In Java, there are separate keywords to define interfaces and abstract classes, whereas in Python, interfaces are defined using an abstract base class. This difference is significant because in Python, multiple inheritance is allowed, whereas in Java, it is not supported due to the potential for a 'diamond problem' to arise.”
+
+### Diamond Problem
+
+The diamond problem is a problem that can arise in object-oriented programming languages that support multiple inheritance, such as C++ and Python. It occurs when a class inherits from two or more classes that have a common ancestor, and the ancestor class has a method that is overridden in one or more of its descendant classes.
+
+Here is an example of the diamond problem in Python:
+
+```python
+class A:
+  def foo(self):
+    print("A.foo")
+
+class B(A):
+  def foo(self):
+    print("B.foo")
+
+class C(A):
+  def foo(self):
+    print("C.foo")
+
+class D(B, C):
+  pass
+
+d = D()
+d.foo()
+```
+
+In this example, the **`D`** class inherits from both the **`B`** and **`C`** classes, which both inherit from the **`A`** class. The **`A`** class defines a **`foo`** method, which is overridden in the **`B`** and **`C`** classes. When we call the **`foo`** method on an instance of the **`D`** class, it is not clear which implementation of the **`foo`** method should be used, because the **`D`** class inherits multiple conflicting implementations of the method. This is known as the diamond problem.

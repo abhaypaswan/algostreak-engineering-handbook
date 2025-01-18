@@ -3,7 +3,10 @@ name: Sync to Private Repo
 on:
   push:
     paths:
-      - docs/** # Trigger only for specific file or folder
+      - docs/** # Trigger for changes in docs
+      - problems/** # Trigger for changes in problems
+      - system-design/** # Trigger for changes in system-design
+      - design-patterns/** # Trigger for changes in design-patterns
 
 jobs:
   sync:
@@ -20,20 +23,54 @@ jobs:
           token: ${{ secrets.PRIVATE_REPO_TOKEN }}
           path: private-repo # Directory to clone private repo
 
-      - name: Sync Files (Delete Old Files and Copy New Ones)
+      - name: Sync Modified Files for All Folders
         run: |
-          # Ensure the destination folder exists and delete its contents
-          mkdir -p private-repo/output
-          rm -rf private-repo/output/*
+          # Define source and destination mappings
+          declare -A FOLDERS=(
+            ["docs"]="apps/www/content/docs"
+            ["problems"]="apps/www/content/problems"
+            ["system-design"]="apps/www/content/system-design"
+            ["design-patterns"]="apps/www/content/design-patterns"
+          )
 
-          # Copy the updated files from the public repo
-          cp -r docs/* private-repo/output
+          # Loop through all folders and sync changes
+          for SRC_FOLDER in "${!FOLDERS[@]}"; do
+            DEST_FOLDER="${FOLDERS[$SRC_FOLDER]}"
+            
+            # Get modified or new files for the current folder
+            MODIFIED_FILES=$(git diff --name-only HEAD~1 HEAD -- "$SRC_FOLDER/")
+            
+            # Get deleted files for the current folder
+            DELETED_FILES=$(git diff --name-only --diff-filter=D HEAD~1 HEAD -- "$SRC_FOLDER/")
+
+            # Ensure the destination folder exists
+            mkdir -p "private-repo/$DEST_FOLDER"
+
+            # Copy modified or new files
+            for file in $MODIFIED_FILES; do
+              echo "Copying $file to private-repo/$DEST_FOLDER/..."
+              mkdir -p "private-repo/$DEST_FOLDER/$(dirname "${file#$SRC_FOLDER/}")"
+              cp "$file" "private-repo/$DEST_FOLDER/${file#$SRC_FOLDER/}"
+            done
+
+            # Delete files removed in the public repo
+            for file in $DELETED_FILES; do
+              echo "Deleting $file from private-repo/$DEST_FOLDER/..."
+              rm -f "private-repo/$DEST_FOLDER/${file#$SRC_FOLDER/}"
+            done
+          done
 
       - name: Push Changes to Private Repo
         run: |
           cd private-repo
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add .
-          git commit -m "Sync from public repo: $GITHUB_SHA"
-          git push
+
+          # Check if there are any changes
+          if ! git diff --quiet; then
+            git add .
+            git commit -m "Sync from public repo: $GITHUB_SHA"
+            git push
+          else
+            echo "No changes to commit"
+          fi

@@ -1,0 +1,37 @@
+---
+title: Distributed Key-Value Store
+description: Design a distributed key-value store that can store and retrieve data across multiple nodes in a network. The system should be fault-tolerant and scalable, allowing for the addition of new nodes without downtime. The system should also provide a consistent interface for clients to interact with the data.
+component: true
+---
+
+Design a distributed key-value store that can store and retrieve data across multiple nodes in a network. The system should be fault-tolerant and scalable, allowing for the addition of new nodes without downtime. The system should also provide a consistent interface for clients to interact with the data.
+
+### Example:
+
+Suppose we have a system that needs to store user information, including name, email address, and password. The system must be able to handle 10 million users and provide high availability and low latency.
+
+### Functional Requirements:
+
+- The system should be able to store and retrieve data using a key-value interface.
+- The system should be able to scale horizontally by adding new nodes to the network.
+- The system should provide fault tolerance, ensuring that data is not lost if a node fails.
+- The system should provide a consistent interface for clients to interact with the data.
+
+### Non-functional Requirements:
+
+- The system should provide high availability with 99.99% uptime.
+- The system should provide low latency with a response time of less than 10 milliseconds.
+- The system should be able to handle 10,000 requests per second with a throughput of at least 10,000 operations per second.
+- The system should be secure and protect user data from unauthorized access.
+- The system should be easy to deploy, configure, and maintain.
+
+### Assumptions:
+
+- The system assumes that each node in the network is connected to each other and can communicate with each other.
+- The system assumes that each node has access to a shared storage or database.
+- The system assumes that the network has a reliable messaging protocol to communicate between nodes.
+
+### Estimated Usage:
+
+- The system is designed to handle 10 million users and data items.
+- The system is designed to handle a high volume of read and write requests with 10,000 requests per second and a throughput of at least 10,000 operations per second.

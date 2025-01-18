@@ -1,0 +1,38 @@
+---
+title: Web Crawler
+description: Design a web crawler that can extract data from the web and store it in a database. The system should be able to handle large volumes of data and be able to scale as the amount of data grows.
+component: true
+---
+
+Design a web crawler that can extract data from the web and store it in a database. The system should be able to handle large volumes of data and be able to scale as the amount of data grows.
+
+### Example:
+
+Suppose we need to build a system that can extract information about products from an e-commerce website, including product names, prices, and descriptions. The system must be able to extract data from 10,000 pages and store it in a database for further analysis.
+
+### Functional Requirements:
+
+- The system should be able to crawl web pages using a list of URLs as input.
+- The system should be able to extract data from web pages using regular expressions or other data extraction techniques.
+- The system should be able to store the extracted data in a database for further analysis.
+
+### Non-functional Requirements:
+
+- The system should be able to handle a large volume of data with at least 10,000 pages to crawl.
+- The system should be able to scale horizontally to handle larger volumes of data.
+- The system should be fault-tolerant and able to recover from errors.
+- The system should be able to run continuously with minimum downtime.
+- The system should be able to handle a high volume of requests without impacting the performance of the web server being crawled.
+- The system should be able to extract data from web pages within a reasonable time frame.
+
+### Assumptions:
+
+- The system assumes that web pages being crawled are publicly accessible and do not require authentication.
+- The system assumes that web pages being crawled do not require JavaScript to render.
+- The system assumes that web pages being crawled are in a format that can be easily parsed and extracted using regular expressions or other data extraction techniques.
+
+### Estimated Usage:
+
+- The system is designed to crawl at least 10,000 web pages.
+- The system should be able to handle at least 1,000 requests per minute.
+- The system should be able to extract data from web pages within a reasonable time frame.

@@ -1,0 +1,23 @@
+---
+title: Availability
+description: Availability in the context of system design refers to the ability of a system to provide service to its users without interruption. In a system design interview, a candidate may be asked to demonstrate how they would design a system to achieve high availability.
+component: true
+---
+
+Availability in the context of system design refers to the ability of a system to provide service to its users without interruption. In a system design interview, a candidate may be asked to demonstrate how they would design a system to achieve high availability.
+
+One way to achieve high availability is through redundancy, which means having multiple copies of the system running in different locations so that if one copy goes down, the others can take over. For example, a company that runs an e-commerce website may want to design a system with multiple servers in different geographic locations, so that if one server goes down, the website can continue to function for users in other regions.
+
+### Measuring Availability: Parameters and Metrics
+
+There are several parameters or metrics that can be used to check or measure the availability of a system. These include:
+
+1. Uptime: This is the percentage of time that a system is available and providing service to its users. Uptime is typically measured in decimal form, such as 99.99%, and is often used as a general indicator of a system's availability.
+2. Response Time: This is the time it takes for a system to respond to a user's request. This metric is often used to measure the performance of a system, but it can also be used to indicate availability. A system with a high response time may indicate that it is overwhelmed or unavailable to some users.
+3. Error Rate: This is the percentage of requests that result in an error or are not fulfilled by the system. A high error rate can indicate that a system is unavailable or not functioning properly.
+4. Throughput: The number of requests that a system can handle per unit of time. This metric can be used to measure the capacity of a system, and a decrease in throughput may indicate that a system is becoming overwhelmed and unavailable.
+5. Mean Time To Recovery (MTTR): This is the average time it takes for a system to recover from an outage. A shorter MTTR means a higher availability.
+
+Keep in mind that availability is a complex metric and different systems may require different methods of measurement depending on their use case.
+
+In the Designing for Availability section, we will delve deeper into the concept of availability in system design and examine strategies for achieving it, such as implementing redundancy, utilizing load balancing, using Content Delivery Network, and implementing monitoring and alerting systems.

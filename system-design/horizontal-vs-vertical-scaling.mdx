@@ -1,0 +1,45 @@
+---
+title: Horizontal vs Vertical Scaling
+description: Scaling is the process of increasing or decreasing the capacity of a system to handle a growing or shrinking workload. There are two main types of scaling - horizontal and vertical.
+component: true
+---
+
+Scaling is the process of increasing or decreasing the capacity of a system to handle a growing or shrinking workload. There are two main types of scaling: horizontal and vertical.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/system-design%2FhoriVverti.png?alt=media&token=25afe845-1694-4f43-b8ff-0dde6e9b1e97](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/system-design%2FhoriVverti.png?alt=media&token=25afe845-1694-4f43-b8ff-0dde6e9b1e97)
+
+### Horizontal Scaling
+
+Horizontal scaling involves adding more resources to a system, such as more servers or more processing power. This is often referred to as "scaling out." An analogy for horizontal scaling in the real world would be a fast food chain or a cloud kithcen that is experiencing an increase in customers. To handle the increase in demand, the chain can open up more locations to better serve their customers and handle the increased demand. This is called "scaling out".
+
+### Advantages of Horizontal Scaling:
+
+- It allows for a more distributed capacity, which can be more cost-effective.
+- It allows for better fault tolerance and availability, as the workload is distributed across multiple resources.
+- It is more flexible, as it allows for a system to be scaled up or down as needed.
+- It allows for better utilization of resources.
+
+### Disadvantages of Horizontal Scaling:
+
+- It requires more complex management, such as load balancing and failover.
+- It can increase the complexity of the system, as the number of resources increases and coordination becomes more difficult.
+- It may require additional resources such as load balancer, which could add more cost.
+
+### Vertical Scaling
+
+Vertical scaling, on the other hand, involves increasing the capacity of a single resource, such as adding more memory or processing power to a server. This is often referred to as "scaling up." Vertical scaling is like upgrading the kitchen equipment of a 5-star restaurant. As the demand for their high-end menu increases, the restaurant can invest in new and more powerful kitchen equipment, such as a new sous-vide machine, to increase their output and meet the growing demand. This is called "scaling up".
+
+### Advantages of Vertical Scaling:
+
+- It allows for more powerful resources to be added to a single server, which can increase efficiency.
+- It allows for faster and more powerful upgrades, as it only requires upgrading or replacing a single resource.
+- It can simplify the management of the system.
+
+### Disadvantages of Vertical Scaling:
+
+- It can be more expensive, as it requires upgrading or replacing existing resources.
+- It may not be as flexible as horizontal scaling, as it can only increase the capacity of a single resource.
+- It may not provide as good fault tolerance and availability, as the system still relies on a single resource.
+- It may have a limit in terms of the maximum capacity of a single resource, once that limit is reached, horizontal scaling is the only option.
+
+Ultimately, the choice between horizontal and vertical scaling will depend on the specific requirements of the system and the resources available. Both approaches have their own advantages and disadvantages, and a combination of both may be the best solution for some systems.

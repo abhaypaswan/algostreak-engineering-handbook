@@ -1,0 +1,24 @@
+---
+title: Scalability
+description: Scalability in system design refers to how well a system can handle an increasing amount of traffic or usage without slowing down. When a company is interviewing someone for a job related to system design, they might ask the candidate to explain how they would design a system that can handle a lot of users or data. This might include talking about different ways to make a system bigger, like adding more computers or making the existing ones more powerful. It could also involve discussing different tools and technologies that can help make a system more scalable. During the interview, the candidate may also need to explain the pros and cons of different approaches to scalability and how to avoid any potential roadblocks.
+component: true
+---
+
+Scalability in system design refers to how well a system can handle an increasing amount of traffic or usage without slowing down. When a company is interviewing someone for a job related to system design, they might ask the candidate to explain how they would design a system that can handle a lot of users or data. This might include talking about different ways to make a system bigger, like adding more computers or making the existing ones more powerful. It could also involve discussing different tools and technologies that can help make a system more scalable. During the interview, the candidate may also need to explain the pros and cons of different approaches to scalability and how to avoid any potential roadblocks.
+
+For example, one concept that may be discussed is bottlenecks - these are points in a system where too much traffic or usage can cause it to slow down or stop working properly. A common bottleneck in a system is the database, which can be addressed by adding more resources to the existing machine (vertical scaling) or by adding more machines to the system (horizontal scaling).
+
+### Measuring Scalability: Parameters and Metrics
+
+There are several parameters or metrics that can be used to check or measure the scalability of a system. These include:
+
+1. Throughput: The number of requests that a system can handle per unit of time. As the system scales, the throughput should increase.
+2. Latency: The time it takes for a system to respond to a user's request. As the system scales, the latency should remain constant or decrease.
+3. Resource Utilization: The amount of resources (such as CPU, memory, and network bandwidth) that a system is using. As the system scales, the resource utilization should remain constant or decrease.
+4. Error Rate: The percentage of requests that result in an error or are not fulfilled by the system. As the system scales, the error rate should remain constant or decrease.
+5. Number of concurrent users or transactions: The number of users or transactions that the system can handle at the same time. As the system scales, this number should increase.
+6. Scale-up and Scale-out: Scale-up refers to adding more resources to an existing machine, while scale-out refers to adding more machines to the system. A system that can scale-out is considered more scalable than a system that can only scale-up.
+
+> It's important to note that scalability is a relative metric, and what is considered scalable for one system may not be for another. Scalability testing is also an important part of the system design process.
+
+In the Designing for Scalability section, we will dive deeper into the concept of scalability in system design and how to achieve it through various techniques such as identifying and addressing bottlenecks, utilizing horizontal and vertical scaling, implementing microservices instead of monoliths, utilizing load balancing, and data partitioning and sharding.

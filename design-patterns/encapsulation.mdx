@@ -1,0 +1,61 @@
+---
+title: Encapsulation
+description: Encapsulation is a fundamental concept in object-oriented programming languages. It refers to the idea of bundling data and methods that operate on that data within a single unit, or object.
+component: true
+---
+
+Encapsulation is a fundamental concept in object-oriented programming languages. It refers to the idea of bundling data and methods that operate on that data within a single unit, or object.
+
+Encapsulation is often achieved through the use of access modifiers, such as "public," "private," and "protected." These modifiers determine the visibility and accessibility of the members (variables and methods) of an object. For example, if a member is declared as "private," it can only be accessed within the object itself and is not visible to other parts of the code. This helps to protect the data within an object from being accessed or modified by code outside of the object.
+
+### Access Modifiers
+
+In object-oriented programming (OOP), access modifiers are keywords or phrases that are used to specify the visibility and accessibility of class members (variables and methods). Access modifiers are an important concept in OOP because they allow developers to control how class members can be accessed and modified, both within the class and by external code.
+
+There are several different types of access modifiers that are used in different OOP languages, but some of the most common ones include:
+
+- **`public`**: Class members that are declared as public are accessible from anywhere within the codebase.
+- **`private`**: Class members that are declared as private are only accessible within the class itself and are not visible or accessible to code outside of the class.
+- **`protected`**: Class members that are declared as protected are only accessible within the class and by derived classes (classes that inherit from the class). They are not accessible to code outside of the inheritance hierarchy.
+
+“The specific syntax for declaring access modifiers varies depending on the programming language. Some languages, such as Java and C++, have explicit keywords for declaring each type of access modifier. Other languages, such as Python, use conventions, such as prefixing private members with double underscores and protected members with a single underscore.
+
+It is important to note that not all programming languages support all types of access modifiers, and the specific level of visibility and accessibility that each modifier provides can vary depending on the language.”
+
+Here is an example of encapsulation in Python:
+
+```python
+class BankAccount:
+    def __init__(self, name, balance):
+        self.__name = name  # private member
+        self.__balance = balance  # private member
+        self._currency = "USD"  # protected member
+
+    def get_name(self):
+        return self.__name
+
+    def get_balance(self):
+        return self.__balance
+
+    def get_currency(self):
+        return self._currency
+
+    def set_name(self, name):
+        self.__name = name
+
+    def set_balance(self, balance):
+        self.__balance = balance
+
+    def set_currency(self, currency):
+        self._currency = currency
+```
+
+In this example, we have defined a **`BankAccount`** class with three member variables: **`__name`** (private), **`__balance`** (private), and **`_currency`** (protected). We have also defined six methods: **`__init__`**, **`get_name`**, **`get_balance`**, **`get_currency`**, **`set_name`**, and **`set_balance`**.
+
+The **`__init__`** method is a special method in Python that is called when an object is created. It initializes the object's member variables, which in this case are **`__name`**, **`__balance`**, and **`_currency`**.
+
+The **`get_name`**, **`get_balance`**, and **`get_currency`** methods are used to retrieve the values of the private and protected members **`__name`**, **`__balance`**, and **`_currency`**, respectively. The **`set_name`**, **`set_balance`**, and **`set_currency`** methods are used to update the values of these members.
+
+Notice that the private members **`__name`** and **`__balance`** are prefixed with double underscores, while the protected member **`_currency`** is prefixed with a single underscore. This is a convention in Python for indicating the intended level of visibility and accessibility of the members.
+
+By using these methods, we can access and modify the private and protected members of the **`BankAccount`** object without directly accessing the variables themselves. This helps to ensure that the data within the object is protected and can only be accessed and modified in a controlled manner.

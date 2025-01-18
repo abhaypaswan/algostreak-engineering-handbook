@@ -1,0 +1,113 @@
+---
+title: Singleton Pattern
+description: A singleton is a class that allows only one instance of itself to be created and usually gives simple access to that instance. This is useful when only a single instance of a class must control the action throughout the execution of a program.
+component: true
+---
+
+A singleton is a class that allows only one instance of itself to be created and usually gives simple access to that instance. This is useful when only a single instance of a class must control the action throughout the execution of a program.
+
+### What problem does it solve:
+
+A singleton class solves the problem of having only one instance of a particular class at a time. It also ensures that this instance is easily accessible from anywhere in the program, thus making it a global point of access.
+
+Example:
+
+[data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e)
+
+[data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e)
+
+```python
+class Singleton:
+    __instance = None
+
+    def __init__(self):
+        if Singleton.__instance != None:
+            raise Exception("This class is a singleton!")
+        else:
+            Singleton.__instance = self
+
+    @staticmethod
+    def getInstance():
+        if Singleton.__instance == None:
+            Singleton()
+        return Singleton.__instance
+
+s = Singleton.getInstance()
+s2 = Singleton.getInstance()
+
+print(s1 is s2) # prints True
+
+```
+
+In this example, the **`Singleton`** class has a private constructor, and a static method **`getInstance()`** that creates an instance of the class if one doesn't already exist, and returns it. The first time we call **`getInstance()`**, it creates a new instance and assigns it to the **`__instance`** variable. The second time we call **`getInstance()`**, it returns the same instance that was created before.
+
+### Thread-safe singleton pattern:
+
+[data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e)
+
+[data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e](data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20version=%271.1%27%20width=%2730%27%20height=%2730%27/%3e)
+
+In a multi-threaded environment, two or more threads could potentially execute the code to create the singleton instance at the same time. To ensure that only one instance is created, we can make use of a lock to make sure that only one thread can execute the code at a time. Here is an example of a thread-safe singleton implementation in Python:
+
+```python
+import threading
+
+class Singleton:
+    __instance = None
+    __lock = threading.Lock()
+
+    def __init__(self):
+        if Singleton.__instance != None:
+            raise Exception("This class is a singleton!")
+        else:
+            Singleton.__instance = self
+
+    @staticmethod
+    def getInstance():
+        with Singleton.__lock:
+            if Singleton.__instance == None:
+                Singleton()
+        return Singleton.__instance
+
+def print_value(s):
+    print(s.value)
+
+s1 = Singleton.getInstance()
+s2 = Singleton.getInstance()
+
+# Both s1 and s2 are the same object
+print(s1 is s2) # prints True
+
+s1.value = 10
+
+# Create two threads that will call print_value function
+t1 = threading.Thread(target=print_value, args=(s1,))
+t2 = threading.Thread(target=print_value, args=(s2,))
+
+# Start both threads
+t1.start()
+t2.start()
+
+# Wait for both threads to finish
+t1.join()
+t2.join()
+
+# Output is 10 and 10
+```
+
+In this example, we've used the threading.Lock class to make sure that only one thread can execute the code that creates the singleton instance at a time.
+
+### Which SOLID principle is violated by a singleton pattern?
+
+A singleton pattern violates the SOLID principle of single responsibility. The singleton class is responsible for both maintaining its own unique instance and providing that instance to clients, rather than having separate classes handle those responsibilities. Additionally, it can also affect the SOLID principle of open-closed principle, because the singleton class cannot be extended or inherited.
+
+### When to use singleton pattern:
+
+The singleton pattern is useful in situations where only a single instance of a class needs to control the action throughout the execution of the program. For example, if you have a class that handles logging, it would make sense to have only one instance of that class throughout the program, as having multiple instances would likely lead to confusion and unexpected behavior.
+
+### Drawbacks:
+
+- Tight Coupling: Because the singleton pattern tightly couples the code that uses it to the singleton class, it can make it more difficult to change or test the code.
+- Testing difficulties: Singletons can make testing more difficult because it can be hard to substitute a mock or stub implementation for a singleton class. This can make it difficult to test the behavior of the code that depends on the singleton.
+- Difficulty to extend: Singletons are also difficult to extend and inherit.
+- Difficulty to understand: Singletons can make it difficult for other programmers to understand how an application works, since global state is often considered an anti-pattern, and a singleton is a global state.

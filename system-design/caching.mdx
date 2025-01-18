@@ -1,0 +1,36 @@
+---
+title: Caching
+description: Caching is a technique used in system design to improve the performance and scalability of a system by storing frequently accessed data in a temporarily location. This can be done in memory, on a hard drive, or even remotely. Caching can help reduce the time it takes to access data, as well as reducing the load on the system that stores the original data.
+component: true
+---
+
+Caching is a technique used in system design to improve the performance and scalability of a system by storing frequently accessed data in a temporarily location. This can be done in memory, on a hard drive, or even remotely. Caching can help reduce the time it takes to access data, as well as reducing the load on the system that stores the original data.
+
+## **Types of Caching**
+
+There are several different types of caching, including:
+
+- **Memory Caching**: This type of caching stores data in the system's memory, which allows for faster access times than disk caching or remote caching. This is because memory access is much faster than disk access. However, memory is limited and expensive, so memory caching is typically used for small and frequently accessed data sets.
+- **Disk Caching**: This type of caching stores data on the system's hard drive. Disk caching is slower than memory caching, but it allows for larger data sets to be stored. Disk caching is typically used for data sets that are too large to be stored in memory.
+- **Browser Caching**: This type of caching stores data in the user's web browser. Browser caching can help reduce the amount of data that needs to be transferred over the network and can improve the performance of a web application.
+- **Remote Caching**: This type of caching stores data in a remote location, such as a cache server. Remote caching can be useful for distributing the load of a system and improving the performance of a distributed system.
+
+| Caching Type    | Advantages                                                                                            | Disadvantages                                                           |
+| --------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| Memory Caching  | Fast access times, Low latency, Efficient use of resources                                            | Limited storage capacity, High cost                                     |
+| Disk Caching    | Large storage capacity, Lower cost than memory caching                                                | Slower access times than memory caching, Higher latency                 |
+| Browser Caching | Reduces the amount of data transferred over the network, Improves the performance of web applications | Limited storage capacity, Data can become stale if not properly managed |
+| Remote Caching  | Distributes the load of a system, Improves the performance of a distributed system                    | Higher latency than local caching, Dependent on network connectivity    |
+
+## **Caching Strategies**
+
+The best caching strategy will depend on the specific needs of the system. Some common caching strategies include:
+
+- **Least Recently Used (LRU)**: This strategy removes the least recently used items from the cache when the cache becomes full. This strategy is useful for data sets that have a large number of items and a limited amount of cache space.
+- **Least Frequently Used (LFU)**: This strategy removes the least frequently used items from the cache when the cache becomes full. This strategy is useful for data sets that have a small number of items and a limited amount of cache space.
+- **First In First Out (FIFO)**: This strategy removes the oldest items from the cache when the cache becomes full. This strategy is useful for data sets that have a small number of items and a limited amount of cache space, and where the order of items is not important.
+- **Time to Live (TTL)**: This strategy removes items from the cache based on a predefined time limit. This strategy is useful for data sets that have a small number of items and a limited amount of cache space, and where the freshness of the data is important.
+- **Cache eviction policies**: LRU, LFU, FIFO, and TTL are all examples of cache eviction policies. These policies determine how items are removed from the cache when it becomes full. Other cache eviction policies include random eviction, least recently used with aging and least frequently used with aging.
+- **Cache sharding**: This strategy involves dividing the cache into smaller pieces, or shards, and distributing them across multiple machines. This can help reduce the load on a single machine and improve the scalability of the system.
+
+In summary, Caching is a powerful technique that can greatly improve the performance and scalability of a system. Careful consideration should be given to the type of caching used, the caching strategy employed, and the eviction policies used to manage the cache. This will help ensure that the system is able to handle the load and respond to user requests quickly and efficiently.

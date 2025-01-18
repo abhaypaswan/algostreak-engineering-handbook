@@ -1,0 +1,46 @@
+---
+title: Design 2048 game
+description: Design a low-level software system for the popular puzzle game 2048. The game is played on a 4x4 grid, and the player moves tiles around to combine matching numbers and reach the goal of creating a tile with the value 2048.
+component: true
+---
+
+Design a low-level software system for the popular puzzle game 2048. The game is played on a 4x4 grid, and the player moves tiles around to combine matching numbers and reach the goal of creating a tile with the value 2048.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2F2048.png?alt=media&token=fd97674c-4768-4b61-985b-3a254b67449e](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2F2048.png?alt=media&token=fd97674c-4768-4b61-985b-3a254b67449e)
+
+### Requirements:
+
+- The game should be played on a 4x4 grid
+- The player should be able to move tiles in four directions (up, down, left, right)
+- The player should be able to combine matching tiles by moving them in the same direction
+- A new tile should be randomly generated with a value of either 2 or 4 after each player move
+- The game should end when the player creates a tile with the value 2048 or when there are no more possible moves left
+- The player's score should be displayed and updated after each move
+
+### Sample Input/Output:
+
+```python
+... starting 2048 with random numbers
++----+----+----+----+
+|  2 | 32 |  2 |  0 |
++----+----+----+----+
+| 16 |  0 |  8 |  0 |
++----+----+----+----+
+|  0 |  0 |  2 |  0 |
++----+----+----+----+
+|  0 |  0 |  2 |  0 |
++----+----+----+----+
+Score: 64
+
+Down
++----+----+----+----+
+|  0 |  0 |  0 |  0 |
++----+----+----+----+
+|  0 |  0 |  2 |  2 |
++----+----+----+----+
+|  2 |  0 |  8 |  0 |
++----+----+----+----+
+| 16 | 32 |  4 |  0 |
++----+----+----+----+
+Score: 66
+```

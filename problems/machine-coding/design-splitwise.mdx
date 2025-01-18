@@ -1,0 +1,95 @@
+---
+title: Design Splitwise
+description: Design and implement a low-level design for a financial tracking application similar to Splitwise that allows users to keep track of shared expenses between friends and family. The application should provide features such as user registration, login, adding expenses, splitting expenses, viewing a summary of expenses, and settling debts between users. The goal is to create a simple and efficient platform for users to keep track of their shared expenses and settle debts in an organized manner.
+component: true
+---
+
+Design and implement a low-level design for a financial tracking application similar to Splitwise that allows users to keep track of shared expenses between friends and family. The application should provide features such as user registration, login, adding expenses, splitting expenses, viewing a summary of expenses, and settling debts between users. The goal is to create a simple and efficient platform for users to keep track of their shared expenses and settle debts in an organized manner.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Fsplitwise.png?alt=media&token=9f810513-79df-4c94-95e5-42f514c54a81](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Fsplitwise.png?alt=media&token=9f810513-79df-4c94-95e5-42f514c54a81)
+
+### Requirements:
+
+1. User registration and login
+2. Adding expenses with details such as description, amount, and participants
+3. Splitting expenses between multiple participants
+4. Viewing a summary of expenses and settling debts between users
+
+### Sample Input/Output:
+
+```python
+Welcome to Splitwise!
+
+1. Register
+2. Login
+
+Enter your choice: 1
+
+Enter First Name: John
+Enter Last Name: Doe
+Enter Email: john.doe@example.com
+Enter Password: ******
+
+Account created successfully!
+
+1. Register
+2. Login
+
+Enter your choice: 2
+
+Enter Email: john.doe@example.com
+Enter Password: ******
+
+Welcome back, John Doe!
+
+1. Add Expense
+2. Split Expense
+3. View Summary
+4. Settle Debt
+
+Enter your choice: 1
+
+Enter Description: Grocery
+Enter Amount: 100
+Enter Participants (separated by spaces): Jane Doe
+
+Expense added successfully!
+
+1. Add Expense
+2. Split Expense
+3. View Summary
+4. Settle Debt
+
+Enter your choice: 2
+
+Enter Expense ID: 1
+Enter Participants' shares (separated by spaces): 50 50
+
+Expense split successfully!
+
+1. Add Expense
+2. Split Expense
+3. View Summary
+4. Settle Debt
+
+Enter your choice: 3
+
+---
+Expense 1: Grocery $100
+    John Doe: $50
+    Jane Doe: $50
+---
+
+1. Add Expense
+2. Split Expense
+3. View Summary
+4. Settle Debt
+
+Enter your choice: 4
+
+Enter Debtor's email: Jane Doe
+Enter Creditor's email: John Doe
+Enter Amount: 50
+
+Debt settled successfully!
+```

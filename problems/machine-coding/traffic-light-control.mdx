@@ -1,0 +1,43 @@
+---
+title: Traffic Light Control
+description: Design a control system for a traffic light at an intersection that can switch between different states (green, yellow, red) based on traffic and pedestrian signals, keep track of traffic flow and timing, handle emergency vehicles, handle multiple intersections simultaneously, and have a management interface for monitoring the status and usage.
+component: true
+---
+
+Design a control system for a traffic light at an intersection that can switch between different states (green, yellow, red) based on traffic and pedestrian signals, keep track of traffic flow and timing, handle emergency vehicles, handle multiple intersections simultaneously, and have a management interface for monitoring the status and usage.
+
+![https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Ftraffic_lights.png?alt=media&token=8fbe2ed3-cb4c-446f-9205-77b4619815ca](https://firebasestorage.googleapis.com/v0/b/techprimer-fbfe6.appspot.com/o/lld%2Ftraffic_lights.png?alt=media&token=8fbe2ed3-cb4c-446f-9205-77b4619815ca)
+
+### Requirements:
+
+1. Ability to switch between different traffic light states (green, yellow, red) based on traffic and pedestrian signals.
+2. Tracking of traffic flow and timing of each light.
+3. Emergency vehicle handling capability.
+4. Ability to handle multiple intersections at the same time.
+
+### Sample IO
+
+```python
+Traffic Light Control System
+
+Main road traffic light: Green
+Side road traffic light: Red
+
+Input:
+[Sensor detected] Vehicles and pedestrians approaching side road
+[Management interface request] Emergency vehicle priority
+
+Output:
+
+Main road traffic light: Yellow
+Side road traffic light: Red
+
+Main road traffic li ght: Red
+Side road traffic light: Green
+
+Emergency vehicle has passed through the intersection.
+Resuming normal traffic flow...
+
+Main road traffic light: Green
+Side road traffic light: Red
+```

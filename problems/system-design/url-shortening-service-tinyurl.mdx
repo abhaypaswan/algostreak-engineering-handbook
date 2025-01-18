@@ -1,0 +1,42 @@
+---
+title: URL Shortening Service - TinyURL
+description: Design a web-based service that allows users to enter a long URL and get back a short URL that redirects to the original URL. The service should be able to handle a high volume of traffic and provide fast and reliable URL redirection.
+component: true
+---
+
+Design a web-based service that allows users to enter a long URL and get back a short URL that redirects to the original URL. The service should be able to handle a high volume of traffic and provide fast and reliable URL redirection.
+
+### Example:
+
+Input URL: **[https://www.example.com/blog/article/12345](https://www.example.com/blog/article/12345)**
+Output URL: **[https://sho.rt/xyzabc](https://sho.rt/xyzabc)**
+
+### Functional Requirements:
+
+- Accept long URLs from users and generate unique short URLs
+- Store the short URLs and their corresponding long URLs in a database
+- Redirect users to the original long URL when they visit the short URL
+- Handle multiple users and concurrent requests
+- Provide an API for programmatic access to the URL shortening service
+
+### Non-functional Requirements:
+
+- High availability, with a target of 99.99% uptime
+- Fast and reliable URL redirection, with a target latency of less than 100ms
+- Secure and private, with no unauthorized access to URLs
+- Scalable to handle high volumes of traffic and URLs
+- Disaster recovery and backups for the database
+- Support for multiple data centers for disaster recovery and global performance
+
+### Assumptions:
+
+- Each URL is less than 2048 bytes in size
+- The service will handle up to 1 million URL shortening requests per day
+- The service will handle up to 1000 requests per second during peak usage
+- The service will store up to 100 million URLs
+
+### Estimated Usage:
+
+- 1 million URL shortening requests per day
+- 1000 requests per second during peak usage
+- 100 million URLs stored in the database

@@ -1,0 +1,98 @@
+---
+title: Classes and Objects
+description: In object-oriented programming, a **class** is a blueprint for creating objects. It defines the characteristics and behaviors that objects of that class will have.
+component: true
+---
+
+Going forward, I will be using Python for examples and code samples for the following reasons:
+
+1. Python code can often be considered as pseudocode, making it easier for those familiar with other programming languages to understand.
+2. Python codes are generally short and concise, making them easier to follow.
+3. I am simply tired of using Java.
+
+Don't worry, as many have said, language should not be a barrier to understanding concepts. If you are determined, you can learn and apply concepts in any language you choose. However, I will still try to include code samples in C++ and Java whenever possible, but for the most part, you will see examples in Python.
+
+Okay then, before we dive into the technical details, let's start with a quick review of the concepts of classes and objects.
+
+### \***\*What are classes and objects?\*\***
+
+In object-oriented programming, a **class** is a blueprint for creating objects. It defines the characteristics and behaviors that objects of that class will have.
+
+An **object**, on the other hand, is an instance of a class. It is a specific realization of a class, with its own set of characteristics and behaviors.
+
+For example, consider the class **`Superhero`**. This class might define characteristics such as name, powers, and team, and behaviors such as fighting crime and saving the world. An object of this class might be a specific superhero, such as Spider-Man. Spider-Man would have his own specific values for the characteristics defined in the **`Superhero`** class (e.g., his name is Spider-Man, his powers include web-slinging and super strength, etc.), and he would be able to perform the behaviors defined in the class (e.g., he can fight crime and save the world).
+
+### \***\*Creating a class in Python\*\***
+
+Now that we have a general understanding of classes and objects, let's see how we can create a class in Python.
+
+To create a class in Python, we use the **`class`** keyword, followed by the name of the class, and a colon. Then, we define the characteristics and behaviors of the class using methods (functions defined within the class).
+
+Here is an example of a simple **`Superhero`** class in Python:
+
+```python
+class Superhero:
+    def __init__(self, name, powers, team):
+        self.name = name
+        self.powers = powers
+        self.team = team
+
+    def fight_crime(self):
+        print(f"{self.name} is fighting crime!")
+
+    def save_the_world(self):
+        print(f"{self.name} is saving the world!")
+```
+
+Let's break down this code a bit. The **`__init__`** method is a special method in Python that is used to initialize an object. It is called when the object is created, and it allows us to set the initial values for the object's characteristics. In this case, we are setting the values for the **`name`**, **`powers`**, and **`team`** characteristics.
+
+The **`fight_crime`** and **`save_the_world`** methods are behaviors that the **`Superhero`** class can perform. Notice that each method has a **`self`** parameter. This is a special parameter in Python that refers to the object itself. It is used to access the object's characteristics and behaviors from within the class.
+
+### \***\*Creating an object\*\***
+
+Now that we have our **`Superhero`** class defined, let's see how we can create an object of this class.
+
+To create an object in Python, we use the name of the class, followed by parentheses, and assign the result to a variable. For example:
+
+```python
+spider_man = Superhero("Spider-Man", ["web-slinging", "super strength"], "Avengers")
+```
+
+This creates a new **`Superhero`** object with the name "Spider-Man", powers "web-slinging" and "super strength", and team "Avengers".
+
+### **Using an object**
+
+Now that we have created an object of the **`Superhero`** class, let's see how we can use it.
+
+To access the characteristics and behaviors of an object in Python, we use the dot notation. For example, to access the name of the **`spider_man`** object, we would use **`spider_man.name`**. To call one of the object's methods, we use the same dot notation, followed by parentheses. For example, to make **`spider_man`** fight crime, we would use **`spider_man.fight_crime()`**.
+
+Here is an example of how we can use the **`spider_man`** object:
+
+```python
+print(spider_man.name)  # Output: "Spider-Man"
+print(spider_man.powers)  # Output: ["web-slinging", "super strength"]
+print(spider_man.team)  # Output: "Avengers"
+
+spider_man.fight_crime()  # Output: "Spider-Man is fighting crime!"
+spider_man.save_the_world()  # Output: "Spider-Man is saving the world!"
+```
+
+### **Modifying object characteristics**
+
+We can also modify the characteristics of an object after it has been created. For example, let's say we want to add the power of "super agility" to the **`spider_man`** object. We can do this using the dot notation:
+
+```python
+spider_man.powers.append("super agility")
+print(spider_man.powers)  # Output: ["web-slinging", "super strength", "super agility"]
+```
+
+### **Exercises**
+
+Now that you have a basic understanding of classes and objects in Python, here are a few exercises to help you practice:
+
+1. Create a **`Villain`** class with characteristics such as **`name`**, **`powers`**, and **`evil_plan`**, and behaviors such as **`cause_trouble`** and **`attempt_to_take_over_the_world`**.
+2. Create an object of the **`Villain`** class and assign it to a variable.
+3. Use the dot notation to access the characteristics and behaviors of the object.
+4. Modify one of the object's characteristics.
+
+I hope this tutorial has been helpful in introducing you to the concepts of classes and objects in Python. And I hope you had fun learning about them through the lens of the Marvel universe! Happy coding!

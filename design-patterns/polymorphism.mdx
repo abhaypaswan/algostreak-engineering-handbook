@@ -1,0 +1,116 @@
+---
+title: Polymorphism
+description: Polymorphism is a core concept in object-oriented programming languages that allows for the reuse of code through the use of inheritance and interfaces. It refers to the ability of a single object or function to take on multiple forms depending on the context in which it is used.
+component: true
+---
+
+Polymorphism is a core concept in object-oriented programming languages that allows for the reuse of code through the use of inheritance and interfaces. It refers to the ability of a single object or function to take on multiple forms depending on the context in which it is used.
+
+There are two main types of polymorphism in object-oriented programming languages:
+
+1. Static polymorphism: Also known as compile-time polymorphism, this type of polymorphism is achieved through method overloading. Method overloading occurs when a class has multiple methods with the same name but different signatures (i.e., the number or type of arguments). When calling the method, the appropriate version is chosen based on the arguments passed.
+2. Dynamic polymorphism: Also known as runtime polymorphism, this type of polymorphism is achieved through method overriding. Method overriding occurs when a subclass defines a method with the same name and signature as a method in the superclass. When calling the method on an instance of the subclass, the subclass's version of the method is called instead of the one in the superclass. This allows the subclass to provide its own implementation of the method and modify or extend the behavior inherited from the superclass.
+
+### Static Polymorphism
+
+In C++, static polymorphism is achieved through function overloading, which allows multiple functions with the same name to exist in the same scope as long as they have different signatures. In Java, static polymorphism is achieved through method overloading, which is similar to function overloading in C++. Here is an example of function overloading in C++ and Java:
+
+```java
+class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(1, 2));   // Output: 3
+        System.out.println(calc.add(1.5, 2.5)); // Output: 4.0
+    }
+}
+```
+
+In this example, we have a Calculator class with two methods named "add" with different signatures. The first method takes two integers as arguments and returns their sum, while the second method takes two doubles as arguments and returns their sum. When we call the "add" method with two integers, the first version of the method is called, while the second version is called when we pass in two doubles.
+
+I have given the examples of C++ and Java because I wanted to mention that method overloading works differently in Python compared to C++ and Java. In C++ and Java, method overloading allows for multiple methods with the same name to exist in the same class as long as they have different signatures. In Python, the number of arguments and their types are not used to distinguish between methods, so it is not possible to have multiple methods with the same name but different signatures. However, Python does provide alternatives for achieving a similar effect, such as using default arguments or the "\*args" and "\*\*kwargs" syntax.
+
+Here is an example of function overloading in Python:
+
+```python
+class Calculator:
+    def add(self, a, b, c=None):
+        if c is not None:
+            return a + b + c
+        return a + b
+
+calc = Calculator()
+print(calc.add(1, 2))   # Output: 3
+print(calc.add(1, 2, 3)) # Output: 6
+```
+
+In this example, the "add" method takes two required arguments, "a" and "b", and an optional argument "c". If "c" is not provided when the method is called, it takes on the default value of None. The method then checks if "c" is not None, and if it is not, it returns the sum of all three arguments. If "c" is None, it returns the sum of "a" and "b".
+
+In Python, "\*args" and "\*\*kwargs" are special syntax used to pass an arbitrary number of arguments or keyword arguments to a function.
+
+Here is an example of using the "\*args" and "\*\*kwargs" syntax to implement method overloading in Python:
+
+```python
+def add(a, b, *args):
+    result = a + b
+    for arg in args:
+        result += arg
+    return result
+
+print(add(1, 2))       # Output: 3
+print(add(1, 2, 3))    # Output: 6
+print(add(1, 2, 3, 4)) # Output: 10
+```
+
+In this example, we have a function named "add" that takes two required arguments, "a" and "b", and an arbitrary number of additional arguments. When we call the "add" function with three or more arguments, the additional arguments are passed to the function as a tuple and added to the result.
+
+Similarly, the "**kwargs" syntax can be used to pass an arbitrary number of keyword arguments to a function. Here is an example of using the "**kwargs" syntax:
+
+```python
+def add(**kwargs):
+    result = 0
+    for key, value in kwargs.items():
+        result += value
+    return result
+
+print(add(a=1, b=2))       # Output: 3
+print(add(a=1, b=2, c=3))  # Output: 6
+print(add(a=1, b=2, c=3, d=4))  # Output: 10
+```
+
+### Dynamic polymorphism
+
+Dynamic polymorphism is a technique that allows a subclass to provide its own implementation of a method that is inherited from a superclass. When calling the method on an instance of the subclass, the subclass's version of the method is called instead of the one in the superclass. This allows the subclass to modify or extend the behavior inherited from the superclass.
+
+Dynamic polymorphism in Python is achieved through inheritance and method overriding. Here is an example of dynamic polymorphism using method overriding in Python:
+
+```python
+class Superhero:
+    def introduce(self):
+        print("I am a superhero")
+
+class Batman(Superhero):
+    def introduce(self):
+        print("I am the Dark Knight")
+
+class Superman(Superhero):
+    def introduce(self):
+        print("I am the Man of Steel")
+
+batman = Batman()
+superman = Superman()
+
+batman.introduce()  # Output: "I am the Dark Knight"
+superman.introduce()  # Output: "I am the Man of Steel"
+```
+
+In this example, we have a Superhero class with an "introduce" method that prints a generic introduction message. We then have two subclasses, Batman and Superman, that override the "introduce" method and provide their own implementation. When we call the "introduce" method on an instance of Batman or Superman, the overridden version of the method is called, resulting in the output "I am the Dark Knight" or "I am the Man of Steel" respectively.

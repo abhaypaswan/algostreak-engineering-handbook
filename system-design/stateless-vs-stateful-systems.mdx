@@ -1,0 +1,47 @@
+---
+title: Stateless vs. stateful systems
+description: In the field of computer science, systems are broadly classified into two categories - stateless and stateful systems. The main difference between the two is the way they handle client data.
+component: true
+---
+
+In the field of computer science, systems are broadly classified into two categories: stateless and stateful systems. The main difference between the two is the way they handle client data.
+
+### Stateless Systems:
+
+A stateless system is a system that does not maintain any information about previous requests from clients. In other words, it does not store any session data or state information for each client. Each request from a client is treated independently, without any knowledge of previous requests. Examples of stateless systems include DNS and HTTP.
+
+**Real World Analogy:**
+
+A vending machine is a good analogy for a stateless system. A vending machine does not keep track of who is purchasing items or how many items a person has purchased in the past. Each transaction is treated independently and the vending machine does not maintain any state information about previous transactions.
+
+Advantages vs Disadvantages
+
+| Advantages                                                                                                                                                                      | Disadvantages                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Simplicity: Stateless systems are simple to design and implement as they do not need to maintain any state information.                                                         | Limited functionality: As stateless systems do not maintain any state information, they are limited in the functionality they can provide.                                |
+| Scalability: As stateless systems do not maintain any state information, they can easily scale horizontally by adding more servers to the system.                               | No personalization: As stateless systems do not maintain any state information, they cannot provide any personalized experience to the client.                            |
+| Resilience: Stateless systems can handle a single point of failure, because it doesn't store any session data, any other server can handle the request if one server goes down. | Increased Network Traffic: As stateless systems don't maintain session data, client need to send the same information multiple time, which increases the network traffic. |
+| Improved Security: Stateless systems do not store any session information, so there is less chance of session data being compromised.                                           |                                                                                                                                                                           |
+
+### Stateful Systems:
+
+A stateful system is a system that maintains information about previous requests from clients. It stores session data or state information for each client and uses it to handle subsequent requests from the same client. Examples of stateful systems include databases and FTP.
+
+**Real World Analogy:**
+
+An ATM (Automated Teller Machine) can be considered a stateful system. When a user interacts with an ATM, the machine maintains state information about the user's account, such as the current balance, recent transactions, and daily withdrawal limits. This information is used to handle subsequent transactions, such as withdrawing cash or checking the account balance.
+
+Additionally, ATM also maintains the state of the session, it keeps track of the user's login and logout, and invalidates the session after certain time.
+
+Advantages vs Disadvantages
+
+| Advantages                                                                                                                             | Disadvantages                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Personalization: Stateful systems can provide a personalized experience to clients as they maintain state information.                 | Complexity: Stateful systems are complex to design and implement as they need to maintain state information.                                                                                |
+| Rich functionality: As stateful systems maintain state information, they can provide a rich set of functionalities.                    | Limited scalability: As stateful systems maintain state information, they are limited in their ability to scale horizontally.                                                               |
+| Improved User Experience: Stateful systems can provide a better user experience by remembering user preferences, history, and context. | Single Point of Failure: Stateful systems are more susceptible to failures as the session data is stored in one place, if that storage goes down, the service will not be able to function. |
+|                                                                                                                                        | Increased Security Risk: Stateful systems store session data, making them more vulnerable to security breaches.                                                                             |
+
+### Conclusion:
+
+In conclusion, stateless and stateful systems are two different approaches to handling client data. Stateless systems are simple, scalable, and easy to design and implement, but have limited functionality and cannot provide personalization. Stateful systems are complex, but can provide personalization and rich functionality. The choice of whether to use a stateless or stateful system depends on the specific requirements of the application.

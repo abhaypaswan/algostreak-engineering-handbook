@@ -1,0 +1,75 @@
+---
+title: Liskov Substitution Principle
+description: The Liskov Substitution Principle (LSP) is a principle of object-oriented programming that states that if a program is using a class, it should be able to use any derived class of that class without knowing it, as long as the derived class follows the behavior of the base class.
+component: true
+---
+
+The Liskov Substitution Principle (LSP) is a principle of object-oriented programming that states that if a program is using a class, it should be able to use any derived class of that class without knowing it, as long as the derived class follows the behavior of the base class.
+
+> In other words, the Liskov Substitution Principle allows derived classes to be used interchangeably with their base classes, as long as they follow the contract established by the base class.
+
+Here is an example of a class that does not follow the Liskov Substitution Principle:
+
+```python
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Bird(Animal):
+    def __init__(self, name, wingspan):
+        super().__init__(name)
+        self.wingspan = wingspan
+
+class Fish(Animal):
+    def __init__(self, name, fins):
+        super().__init__(name)
+        self.fins = fins
+```
+
+In this example, the **`Animal`** class defines the core functionality (such as storing the animal's name), and the **`Bird`** and **`Fish`** classes add additional functionality (wingspan and fins) through inheritance. However, this design violates the Liskov Substitution Principle, because the **`Bird`** and **`Fish`** classes do not behave in the same way as the **`Animal`** class. In particular, the **`Animal`** class does not have a **`wingspan`** or **`fins`** attribute, so it is not possible to use a **`Bird`** or **`Fish`** object interchangeably with an **`Animal`** object without knowing which specific type of object it is.
+
+To fix this design and make it follow the Liskov Substitution Principle, we could add a **`wingspan`** and **`fins`** attribute to the **`Animal`** class, or we could create a new base class for birds and fish that defines these attributes.
+
+Here is an example of how we could modify the design to follow the Liskov Substitution Principle:
+
+```python
+class Animal:
+    def __init__(self, name, wingspan=None, fins=None):
+        self.name = name
+        self.wingspan = wingspan
+        self.fins = fins
+
+class Bird(Animal):
+    def __init__(self, name, wingspan):
+        super().__init__(name, wingspan=wingspan)
+
+class Fish(Animal):
+    def __init__(self, name, fins):
+        super().__init__(name, fins=fins)
+```
+
+In this revised design, the **`Animal`** class defines the core functionality (such as storing the animal's name, wingspan, and fins), and the **`Bird`** and **`Fish`** classes add additional functionality (specific types of wingspan and fins) through inheritance. This design follows the Liskov Substitution Principle, because we can use any of the derived classes interchangeably with the base **`Animal`** class, as long as they follow the behavior of the base class.
+
+Here is an example of how you could use the **`Animal`**, **`Bird`**, and **`Fish`** classes interchangeably:
+
+```python
+# Create some animals
+animal1 = Animal("Fluffy")
+animal2 = Bird("Tweety", wingspan=2.5)
+animal3 = Fish("Nemo", fins=4)
+
+# Add them to a list
+animals = [animal1, animal2, animal3]
+
+# Loop through the list and print their names
+for animal in animals:
+    print(animal.name)
+```
+
+```python
+Fluffy
+Tweety
+Nemo
+```
+
+In this example, we create three animals: an **`Animal`** object, a **`Bird`** object, and a **`Fish`** object. We then add them to a list and loop through the list, printing the name of each animal. Because the **`Animal`**, **`Bird`**, and **`Fish`** classes follow the Liskov Substitution Principle, we can use them interchangeably without knowing which specific type of object they are.

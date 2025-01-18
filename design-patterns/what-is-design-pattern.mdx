@@ -1,0 +1,23 @@
+---
+title: What is Design Pattern?
+description: In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design. A design pattern isn't a finished design that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.
+component: true
+---
+
+In software engineering, a design pattern is a general repeatable solution to a commonly occurring problem in software design. A design pattern isn't a finished design that can be transformed directly into code. It is a description or template for how to solve a problem that can be used in many different situations.
+
+### Here is an example of how a design pattern might be used in a real-world scenario:
+
+Imagine you are a software developer working on a team responsible for building a web application for a large retail company. The application needs to allow customers to browse and purchase products, and it needs to be able to handle a large number of users concurrently.
+
+One of the challenges you face is how to design the system in a way that will be scalable as the number of users increases. You decide to use the "singleton" design pattern (we will delve into the details of this design pattern, in upcoming sections) to ensure that only a single instance of the object that manages the product catalog is created, even if multiple users try to access it at the same time.
+
+By implementing the singleton pattern, you can ensure that the product catalog object is efficiently shared among all users of the application, without the need to create a new instance every time a user wants to access the catalog. This helps to improve the performance and scalability of the application, as the system doesn't have to spend resources creating and destroying objects unnecessarily.
+
+### Types of Design Patterns
+
+There are three main types of design patterns: creational, structural, and behavioral patterns.
+
+1. Creational patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. Examples of creational patterns include the singleton, factory, and builder patterns.
+2. Structural patterns deal with object composition, creating relationships between objects to form larger structures. Examples of structural patterns include the adapter, composite, and decorator patterns.
+3. Behavioral patterns focus on communication between objects, what goes on between objects and how they operate together. Examples of behavioral patterns include the observer, strategy, and template method patterns.

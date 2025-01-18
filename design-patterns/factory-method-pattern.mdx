@@ -1,0 +1,99 @@
+---
+title: Factory Method Pattern
+description: The Factory Method pattern is a creational design pattern that defines an interface for creating objects, but allows subclasses to alter the type of objects that will be created. It provides a way to delegate the instantiation logic to child classes.
+component: true
+---
+
+The Factory Method pattern is a creational design pattern that defines an interface for creating objects, but allows subclasses to alter the type of objects that will be created. It provides a way to delegate the instantiation logic to child classes.
+
+As per the Gang of Four definition,##new_line####new_line##"Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.”
+
+### Implementation
+
+The main components of the Factory Method pattern are the Creator, the ConcreteCreator, the Product, and the ConcreteProduct.
+
+- The Creator is an abstract class that defines a factory method, which returns an object of the Product class.
+- The ConcreteCreator is a subclass of the Creator, which implements the factory method and returns an instance of a ConcreteProduct.
+- The Product is an abstract class that defines the interface for the object that will be created by the factory method.
+- The ConcreteProduct is a subclass of the Product class and provides a concrete implementation of the interface defined by the Product class.
+
+Here is an example of Factory Method Pattern:
+
+```python
+from abc import ABC, abstractmethod
+
+#Product
+class Superhero(ABC):
+    def __init__(self):
+        self.name = None
+        self.powers = []
+
+    @abstractmethod
+    def intro(self):
+    	pass
+
+    def display(self):
+        print("Name: ", self.name)
+        self.intro()
+        print("Powers: ", ', '.join(self.powers))
+
+#ConcreteProduct 1
+class Superman(Superhero):
+    def __init__(self):
+        self.name = "Superman"
+        self.powers = ["Super Strength", "Super Speed", "Super Breath", "Super Vision"]
+
+    def intro(self):
+    	print("I will fight for truth, justice and all that is good!")
+
+#ConcreteProduct 2
+class Spiderman(Superhero):
+    def __init__(self):
+        self.name = "Spiderman"
+        self.powers = ["Super Strength", "Super Agility", "Wall Crawling", "Spider Sense"]
+
+    def intro(self):
+    	print("With great power comes great responsibility.")
+
+#Creator
+class SuperheroCreator(ABC):
+    @abstractmethod
+    def create_superhero(self, superhero_type): # abstract factory method
+        pass
+
+#ConcreteCreator
+class SuperheroFactory(SuperheroCreator):
+    def create_superhero(self, superhero_type): # concrete factory method
+        #Factory Method
+        if superhero_type == "superman":
+            return Superman()
+        elif superhero_type == "spiderman":
+            return Spiderman()
+        else:
+            return None
+```
+
+In this example, the **`Superhero`** class is the Product, and the **`Superman`** and **`Spiderman`** classes are the ConcreteProduct. The **`SuperheroFactory`** class is the ConcreteCreator and the **`create_superhero`** method is the factory method, which is an interface for creating objects.
+
+You can create your Superhero like this:
+
+```python
+factory = SuperheroFactory()
+marvel_superhero = factory.create_superhero("spiderman")
+marvel_superhero.display()
+# Outputs:
+# Name: Spiderman
+# With great power comes great responsibility.
+# Powers: Super Strength, Super Agility, Wall Crawling, Spider Sense
+
+dc_superhero = factory.create_superhero("superman")
+dc_superhero.display()
+# Outputs
+# Name:  Superman
+# I will fight for truth, justice and all that is good!
+# Powers:  Super Strength, Super Speed, Super Breath, Super Vision
+```
+
+### Use Cases
+
+A use case for the Factory Method pattern is when a class can't anticipate the type of objects it needs to create. Instead of specifying the type of object to create, the Factory Method pattern allows the class to specify a factory method that will create the object. This allows for more flexibility in the types of objects that can be created, as different factory methods can return different types of objects.

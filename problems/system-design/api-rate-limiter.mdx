@@ -1,0 +1,33 @@
+---
+title: API Rate Limiter
+description: Design a web API rate limiter that limits the number of requests an API client can make within a specific time period.
+component: true
+---
+
+Design a web API rate limiter that limits the number of requests an API client can make within a specific time period.
+
+### Functional Requirements
+
+- The API rate limiter should allow a limited number of requests for an API client within a specific time period.
+- If the API client exceeds the allowed limit, the API should return an error response.
+- The API should provide a way for API clients to check their current rate limit status.
+
+### Nonfunctional Requirements
+
+- 99.99% Availability
+- 50ms latency for rate limit check API
+- 100ms latency for rate limited API calls
+- The rate limiter should work across multiple instances of the API service.
+
+### Assumptions
+
+- The API clients are identified using an API key or an IP address.
+- The API service can handle up to 1 million active clients.
+- The rate limit will be calculated per minute.
+- The rate limit will be configurable on a per-client basis.
+
+### Estimated Usage
+
+- 500 requests per second during peak hours.
+- 1 read and 1 write per rate limit check.
+- 2000 rate-limited requests per second during peak hours.
